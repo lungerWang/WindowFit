@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.babykingdom.windowfit.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_1"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/y200"
+        android:background="#ff0000"/>
+
+    <RelativeLayout
+        android:layout_width="@dimen/x118"
+        android:layout_height="@dimen/y200"
+        android:layout_toRightOf="@id/rl_1"
+        android:background="#00ff00"/>
+    <RelativeLayout
+        android:layout_below="@id/rl_1"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/y817"
+        android:background="#00ff00"/>
+</RelativeLayout>
