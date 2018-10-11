@@ -7,17 +7,17 @@ import java.io.PrintWriter;
 
 /**
  * Created by Lunger on 2015/5/5
- * 生成百分比适配Dimen文件
+ * 生成百分比适配Dimen文件 ,负值版本
  */
-public class GenerateValueFiles {
+public class GenerateMinusValueFiles {
 
     private int baseW;
     private int baseH;
 
     private String dirStr = "./res";
 
-    private final static String WTemplate = "<dimen name=\"x{0}\">{1}px</dimen>\n";
-    private final static String HTemplate = "<dimen name=\"y{0}\">{1}px</dimen>\n";
+    private final static String WTemplate = "<dimen name=\"xm{0}\">-{1}px</dimen>\n";
+    private final static String HTemplate = "<dimen name=\"ym{0}\">-{1}px</dimen>\n";
 
     /**
      * {0}-HEIGHT
@@ -35,7 +35,7 @@ public class GenerateValueFiles {
      * @param baseY
      * @param supportStr
      */
-    public GenerateValueFiles(int baseX, int baseY, String supportStr) {
+    public GenerateMinusValueFiles(int baseX, int baseY, String supportStr) {
         this.baseW = baseX;
         this.baseH = baseY;
 
@@ -132,8 +132,8 @@ public class GenerateValueFiles {
                 .replace("{1}", w + ""));
         fileDir.mkdir();
 
-        File layxFile = new File(fileDir.getAbsolutePath(), "lay_x.xml");
-        File layyFile = new File(fileDir.getAbsolutePath(), "lay_y.xml");
+        File layxFile = new File(fileDir.getAbsolutePath(), "-lay_x.xml");
+        File layyFile = new File(fileDir.getAbsolutePath(), "-lay_y.xml");
         try {
             PrintWriter pw = new PrintWriter(new FileOutputStream(layxFile));
             pw.print(sbForWidth.toString());
@@ -174,7 +174,7 @@ public class GenerateValueFiles {
             System.exit(-1);
         }
 
-        new GenerateValueFiles(baseW, baseH, addition).generate();
+        new GenerateMinusValueFiles(baseW, baseH, addition).generate();
     }
 
 }
